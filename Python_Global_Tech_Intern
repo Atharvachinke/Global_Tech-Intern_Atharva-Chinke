@@ -1,0 +1,26 @@
+import random
+def guess_number():
+  number = random.randint(1, 500)
+  guesses = 0
+  while True:
+    guess = int(input("Guess a number between 1 and 500: "))
+    guesses += 1
+    if guess == number:
+      break
+  return guesses
+
+def main():
+  score = 0
+  #  playing the game until the user wants to quit.
+  while True:
+    # Get the number of guesses the user took to guess the correct number.
+    guesses = guess_number()
+    # Update  score.
+    score += (100 - guesses)
+    play_again = input("Do you want to play again? (Y/N): ")
+    if play_again.lower() != "y":
+      break
+  print("Your final score is:", score)
+
+if __name__ == "__main__":
+  main()
